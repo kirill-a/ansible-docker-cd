@@ -1,4 +1,4 @@
-FROM kirill/todobackend-base:latest
+FROM localhost:5000/todobackend-base:latest
 MAINTAINER kirill
 
 # Install dev/build dependencies

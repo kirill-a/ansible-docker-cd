@@ -19,14 +19,14 @@ app:
     - "--die-on-term"
 
 test:
-  image: kirill/todobackend-specs
+  image: localhost:5000/todobackend-specs
   links:
     - nginx
   environment:
     URL: http://nginx:8000/todos
     JUNIT_REPORT_PATH: /reports/acceptance.xml
     JUNIT_REPORT_STACK: 1
-  command: --reporter mocha-jenkins-reporter
+  command: --reporter mocha-jenkins-reporter --timeout 10000
 
 nginx:
   build: .
@@ -56,11 +56,10 @@ db:
     MYSQL_ROOT_PASSWORD: password
 
 agent:
-  image: kirill/ansible
+  image: localhost:5000/ansible
   links:
     - db
   environment:
     PROBE_HOST: "db"
     PROBE_PORT: "3306"
-  volumes:
-    - ../../ansible/probe.yml:/ansible/site.yml
+  command: ["probe.yml"]
