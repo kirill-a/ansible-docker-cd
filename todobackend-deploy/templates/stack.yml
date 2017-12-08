@@ -46,7 +46,7 @@ Resources:
   AutoScalingLaunchConfiguration:
     Type: "AWS::AutoScaling::LaunchConfiguration"
     Properties:
-      ImageId: ami-cf6342ac
+      ImageId: ami-7b40176d
       InstanceType: t2.micro
       KeyName: { "Ref": "KeyPair" }
       IamInstanceProfile: { "Ref": "EC2InstanceProfile" }

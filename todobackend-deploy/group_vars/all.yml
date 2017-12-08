@@ -1,7 +1,7 @@
 ---
 vpc_id: vpc-24a25d5d
 subnet_id: subnet-6680382e
-ec2_keypair: admin
+ec2_keypair: keys
 instance_count: 2
 db_subnets:
   - subnet-6680382e
